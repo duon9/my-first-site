@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {% block header %}
+    <title>Home Page</title>
+    {% endblock %}
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</head>
+<body>
+    <header>
+        <h1><a href = "{{url_for('home')}}"> duon9's Portal </a></h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('movies') }}">Movies</a></li>
+                <li><a href="{{ url_for('tvshows') }}">TV Shows</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('profile') }}">Profile</a></li>
+                {% else %}
+                <li><a href="{{ url_for('login') }}">Login</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {% block body %}
+    
+    <p>Define content here</p>
+
+    {% endblock %}
+
+    <footer>
+        <p>&copy; 2024 My Movie Website. All rights reserved.</p>
+    </footer>  
+</body>
+</html>

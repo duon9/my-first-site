@@ -1,0 +1,29 @@
+
+{% extends 'core.html' %}
+
+
+{% block header %}
+    <title>Home</title>
+{% endblock %}
+
+{% block body %}
+    
+<main>
+    <section class="movies">
+        <h2>Popular Movies</h2>
+        <img src = "{{ url_for('serve_image', filename='movie2.jpg') }}" class = "movie"> 
+        <img src = "{{ url_for('serve_image', filename='movie4.jpg') }}" class = "movie"> 
+        <img src = "{{ url_for('serve_image', filename='movie3.jpg') }}" class = "movie"> 
+        <!-- Add more movie items here -->
+    </section>
+
+    <section class="tv-shows">
+        <h2>Popular TV Shows</h2>
+        <img src = "{{ url_for('serve_image', filename='movie1.jpg') }}" class = "tv-show"> 
+        <img src = "{{ url_for('serve_image', filename='movie5.jpg') }}" class = "tv-show"> 
+        <img src = "{{ url_for('serve_image', filename='movie6.jpg') }}" class = "tv-show"> 
+        <!-- Add more TV show items here -->
+    </section>
+</main>
+    
+{% endblock %}

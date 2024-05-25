@@ -1,0 +1,24 @@
+{% extends 'core.html' %}
+
+
+{% block header %}
+    <title> {{name}} </title>
+{% endblock %}
+
+{% block body %}
+
+
+{% if current_user.is_authenticated %}
+    <main>
+        <video controls>
+            <source src="{{ url_for('static', filename='videos/' + name + '.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </main>
+{% else %}
+    <main>
+        <p id="warning">please Login to watch this video</p>
+    </main>
+{% endif %}
+    
+{% endblock %}
