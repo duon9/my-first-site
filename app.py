@@ -108,4 +108,6 @@ def serve_image(filename):
     return send_from_directory('static/images', filename)
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()  # Create all tables defined in the models
     app.run(debug=True)
